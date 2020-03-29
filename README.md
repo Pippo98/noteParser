@@ -60,7 +60,7 @@ heare as normal text you can write whatever you want
 
 heare inside there the example
 
---- ---
+\-\-\- \-\-\-
 
 heare is no more an example
 
