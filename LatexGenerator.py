@@ -1,6 +1,8 @@
 from pylatex import Document, Section, Subsection, Tabular, Math, TikZ, Axis, \
-    Plot, Figure, Matrix, Alignat, Center
-from pylatex.utils import italic
+    Plot, Figure, Matrix, Alignat, Center, HorizontalSpace
+from pylatex.utils import italic, bold
+
+from objetcs import chapterObject, subchapterObject, lineObject
 
 
 class generator:
@@ -10,65 +12,79 @@ class generator:
         self.currentSubChapter = ""
         self.inChapter = False
         self.inSubChapter = False
+        self.inExample = False
 
         self.chapters = []
+
         super().__init__()
 
     def parseAll(self):
-        chapterObj = {
-            "name": "",
-            "intro": "",
-            "subChapters": [],
-        }
-        subchapterObj = {
-            "name": "",
-            "text": ""
-        }
+        chapterObj = chapterObject()
+        subchapterObj = subchapterObject()
+        lineObj = lineObject()
         for i, line in enumerate(self.lines):
             if not line.find("-|-") == -1:
                 if self.inChapter:
-                    chapterObj["subChapters"].append(subchapterObj)
+                    chapterObj.subChapters.append(subchapterObj)
                     self.chapters.append(chapterObj)
-                    chapterObj = {
-                        "name": "",
-                        "intro": "",
-                        "subChapters": [],
-                    }
-                    subchapterObj = {
-                        "name": "",
-                        "text": ""
-                    }
+
+                    subchapterObj = subchapterObject()
+                    chapterObj = chapterObject()
+                    chapterObj.subChapters = []
+                    subchapterObj.lines = []
 
                 self.currentChapter = line.split("-|-")[1]
                 self.inChapter = True
                 self.inSubChapter = False
 
-                chapterObj["name"] = self.currentChapter
+                chapterObj.name = self.currentChapter
                 continue
 
             if self.inChapter:
                 if not line.find("-#-") == -1:
 
                     if self.inSubChapter:
-                        chapterObj["subChapters"].append(subchapterObj)
-                        subchapterObj = {
-                            "name": "",
-                            "text": ""
-                        }
+                        chapterObj.subChapters.append(subchapterObj)
+                        subchapterObj = subchapterObject()
+                        subchapterObj.lines = []
 
                     self.currentSubChapter = line.split("-#-")[1]
-                    subchapterObj["name"] = self.currentSubChapter
+                    subchapterObj.name = self.currentSubChapter
 
                     self.inSubChapter = True
                     continue
 
             if self.inChapter and not self.inSubChapter:
-                chapterObj["intro"] = chapterObj["intro"] + line
+                lineObj.lineType = "normal"
+                lineObj.content = line
+                chapterObj.introLines.append(lineObj)
+                lineObj = lineObject()
 
             if self.inSubChapter:
-                subchapterObj["text"] = subchapterObj["text"] + line
+                lineObj.lineType = "normal"
 
-        chapterObj["subChapters"].append(subchapterObj)
+                if self.inExample:
+                    lineObj.lineType = "example"
+
+                if not line.find("---") == -1 and line.find("--- ---") == -1:
+                    self.inExample = True
+                    lineObj.lineType = "example"
+                    lineObj.title = line.split("---")[1]
+                    line = ""
+
+                if not line.find("--- ---") == -1:
+                    self.inExample = False
+                    continue
+
+                if not line.find("***") == -1:
+                    line = line.split("*** ")[1]
+                    lineObj.lineType = "math"
+
+                lineObj.content = line
+                subchapterObj.lines.append(lineObj)
+                lineObj = lineObject()
+
+        chapterObj.subChapters.append(subchapterObj)
         self.chapters.append(chapterObj)
         return
 
@@ -78,35 +94,35 @@ class generator:
         doc = Document(geometry_options=geometry_options)
 
         for chapter in self.chapters:
-            with doc.create(Section(str(chapter["name"]))):
-                if not chapter["intro"] == []:
-                    for line in chapter["intro"]:
-                        doc.append(line)
-                for subchapter in chapter["subChapters"]:
-                    with doc.create(Subsection(subchapter["name"])):
-                        if not subchapter["text"] == "":
-                            for line in subchapter["text"]:
-                                doc.append(line)
+            with doc.create(Section(str(chapter.name))):
+                # Chapter Intro
+                if not chapter.introLines == []:
+                    for line in chapter.introLines:
+                        if line.lineType == "normal":
+                            doc.append(line.content)
+                # Subchapter
+                for subChapter in chapter.subChapters:
+                    with doc.create(Subsection(subChapter.name)):
+                        if not subChapter.lines == []:
+                            for line in subChapter.lines:
+                                # Normal Line
+                                if line.lineType == "normal":
+                                    doc.append(line.content)
+                                # Line with formula
+                                if line.lineType == "math":
+                                    with doc.create(Alignat(numbering=True, escape=False)) as math_eq:
+                                        math_eq.append(line.content)
+
+                                # Example Lines
+                                if line.lineType == "example":
+                                    if not line.title == "":
+                                        doc.append(bold(line.title+"\n"))
+                                    else:
+                                        # doc.append(HorizontalSpace(size="2cm"))
+                                        doc.append(italic(line.content))
 
         doc.generate_pdf('full', clean_tex=False)
 
-    def parseText(self):
-        buff = []
-        for i, chapter in enumerate(self.chapters):
-            for line in chapter["intro"].split("\n"):
-                if not line == "":
-                    buff.append(str(line + "\n"))
-
-            self.chapters[i]["intro"] = buff
-            buff = []
-            for j, subchapter in enumerate(chapter["subChapters"]):
-                for line in subchapter["text"].split("\n"):
-                    if not line == "":
-                        buff.append(str(line + "\n"))
-                        self.chapters[i]["subChapters"][j]["text"] = buff
-                buff = []
-
     def generate(self):
         self.parseAll()
-        self.parseText()
         self.generateLatex()
