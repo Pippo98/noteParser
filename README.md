@@ -42,6 +42,6 @@ texlive-latex-extra
 
 ## Example
 
-![Alt text](/example.txt ".txt file")
-![Alt text](/example.pdf "PDF file")
-![Alt text](/example.tex "Latex file")
+![Alt text](/example/txt.png ".txt file")
+![Alt text](/example/pdf.png "PDF file")
+![Alt text](/example/tex.png "Latex file")
