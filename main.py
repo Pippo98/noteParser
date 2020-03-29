@@ -11,8 +11,8 @@ from LatexGenerator import generator
 
 bt = terminalBrowser()
 
-path = "/home/filippo/Desktop/Uni/Materiali/appunti.txt"
-#path = bt.browse()
+#path = "/home/filippo/Desktop/Uni/Materiali/appunti.txt"
+path = bt.browse()
 
 filename = path.split("/")[-1].split(".")[0]
 
