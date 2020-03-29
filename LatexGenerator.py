@@ -6,14 +6,14 @@ from objetcs import chapterObject, subchapterObject, lineObject
 
 
 class generator:
-    def __init__(self, lines):
+    def __init__(self, filename, lines):
+        self.filename = filename
         self.lines = lines
         self.currentChapter = ""
         self.currentSubChapter = ""
         self.inChapter = False
         self.inSubChapter = False
         self.inExample = False
-
         self.chapters = []
 
         super().__init__()
@@ -121,7 +121,7 @@ class generator:
                                         # doc.append(HorizontalSpace(size="2cm"))
                                         doc.append(italic(line.content))
 
-        doc.generate_pdf('full', clean_tex=False)
+        doc.generate_pdf(self.filename, clean_tex=False)
 
     def generate(self):
         self.parseAll()

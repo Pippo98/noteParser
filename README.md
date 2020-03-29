@@ -42,29 +42,6 @@ texlive-latex-extra
 
 ## Example
 
--|- First Chapter -|-
-
-this chapter is about...
-
--#- Sub Chapter -#-
-
-heare as normal text you can write whatever you want
-
-\*\*\* 2+3=6
-
--|- Second Chapter -|-
-
--#- First Sub Chapter -#-
-
---- Example ---
-
-heare inside there the example
-
-\-\-\- \-\-\-
-
-heare is no more an example
-
--#- Second Sub Chapter -#-
-
-text
-
+![Alt text](/example.txt ".txt file")
+![Alt text](/full.pdf "PDF file")
+![Alt text](/full.tex "Latex file")

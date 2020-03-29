@@ -11,12 +11,14 @@ from LatexGenerator import generator
 
 bt = terminalBrowser()
 
-#path = "/home/filippo/Desktop/Uni/Materiali/appunti.txt"
-path = bt.browse()
+path = "/home/filippo/Desktop/Uni/Materiali/appunti.txt"
+#path = bt.browse()
+
+filename = path.split("/")[-1].split(".")[0]
 
 file_ = open(path, "r")
 
 lines = file_.readlines()
 
-gen = generator(lines)
+gen = generator(filename, lines)
 gen.generate()

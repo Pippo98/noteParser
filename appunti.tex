@@ -1,0 +1,459 @@
+\documentclass{article}%
+\usepackage[T1]{fontenc}%
+\usepackage[utf8]{inputenc}%
+\usepackage{lmodern}%
+\usepackage{textcomp}%
+\usepackage{lastpage}%
+\usepackage[tmargin=1cm,lmargin=1cm]{geometry}%
+\usepackage{amsmath}%
+%
+%
+%
+\begin{document}%
+\normalsize%
+\section{ Diffusione }%
+\label{sec:Diffusione}%
+E' un processo che avviene in funzione della temperatura.\newline%
+%
+Difetti reticolari sono alla base della diffusione, in particolare le vacanze\newline%
+%
+Sfruttato nella saldatura\newline%
+%
+Avviene tra due materiali adiacenti, nel/nei punti di contatto avviene a diffusione, ovvero parte del materiale A\newline%
+%
+è andato ad occupare spazio nel materiale B e viceversa , è un processo che richiede molto tempo.\newline%
+%
+Dipende dalle dimesioni degli atomi dei due materiali, infatti il materiale con dimensioni più piccole è più \newline%
+%
+propenso a diffondere nel materiale con atomi più grandi.\newline%
+%
+La vibrazione degli atomi all'interno del solido provoca uno spostamento di essi, crea quindi vacanze e permette\newline%
+%
+a queste vacanze di potersi muovere, il processo di diffusione sfrutta questo principio, il risultato è quindi uno\newline%
+%
+spostamento di atomi da A a B attraverso questi "vuoti" all'interno del solido.\newline%
+%
+La temperatura va ad agire sulla vibrazione degli atomi e quindi sulla velocità di spostamento di essi, quindi\newline%
+%
+anche alla velocità del processo di diffusione.\newline%
+%
+\newline%
+%
+\newline%
+%
+Diagrammi che descrivono lo stato di un materiale date delle condizioni di contorno.\newline%
+%
+Analizzeremo sistemi binari, diagrammi binari, in funzione della variabile temperatura.\newline%
+%
+Confrontiamo la stabilità termodinamica di diverse fasi.\newline%
+%
+E' un'analisi indipendente dal tempo\newline%
+%
+\newline%
+%
+\subsection{ Modello }%
+\label{subsec:Modello}%
+Il primo modello e più semplice da analizzare è quello della diffusione stazionaria attraverso una lamina sottile.\newline%
+%
+La concentrazione delle die facce della lamina è costante nel tempo.\newline%
+%
+Prima legge di Fick descrive questo modello:\newline%
+%
+\begin{alignat}{2}%
+J = -D * dC/dx
+%
+\end{alignat}%
+Ovvero J è il flusso, (quantità di massa per quantità di area per unità di tempo) e dipende da:\newline%
+%
+D coefficente di diffusione,\newline%
+%
+C concentrazione\newline%
+%
+x posizione\newline%
+%
+il segno "{-}" è perchè il gradiente di concentrazione è negativo, per avere un flusso positivo serve quindi il segno "{-}"\newline%
+%
+\newline%
+%
+Se il gradiente di concentrazione non è costante nel tempo la prima legge non è più utilizzabile e viene sostituita dalla\newline%
+%
+Seconda legge di Fick\newline%
+%
+E' un'equazione che dipende dal tempo:\newline%
+%
+\begin{alignat}{2}%
+dC/dt = D dC^2/dx^2
+%
+\end{alignat}%
+\newline%
+%
+\textbf{ Esempio \newline%
+}%
+\textit{Il profilo di concentrazione è un grafico che per ascisse ha la posizione e per ordinate ha la concentrazione\newline%
+}%
+\textit{Un profilo di concentrazione varia nel tempo, infatti la tempo t1 sarà un'iperbole molto schiacciata verso l'origine,\newline%
+}%
+\textit{man mano che il tempo passa, l'iperbole si allarga, la concentrazione di materiale diffuso aumenta.\newline%
+}%
+\textit{n.b. il la curva non è un'iperbole\newline%
+}%
+\newline%
+%
+La seconda equazione di fick non è risolvibile analiticamente, può essere nel caso specifico.\newline%
+%
+Ad esempio nel caso della diffusione cel carbonio nel ferro viene risolta come:\newline%
+%
+\newline%
+%
+\begin{alignat}{2}%
+(Cx - C0) / (Cs - C0) = 1 - erf(x / 2*sqrt(tD))
+%
+\end{alignat}%
+\newline%
+%
+Cx: concenrazione in x\newline%
+%
+C0: concentrazione corrispondente alla concentrazione iniziale e a distanza infinita\newline%
+%
+Cs: concentrazione in superficie\newline%
+%
+erf: "l'erfiano" funzione matematica\newline%
+%
+\newline%
+
+%
+\subsection{ Erfiano }%
+\label{subsec:Erfiano}%
+Funzione di errore gaussiana\newline%
+%
+\newline%
+
+%
+\subsection{ Coefficente di diffusione }%
+\label{subsec:Coefficentedidiffusione}%
+E' quel parametro che descrive il comportamento della diffusione\newline%
+%
+Dipende dal materiale che diffonde e dal materiale in cui si diffonde\newline%
+%
+Dipende dalla temperatura\newline%
+%
+L'equazioione è:\newline%
+%
+\begin{alignat}{2}%
+D = D0 - exp(- Q/(RT))
+%
+\end{alignat}%
+\newline%
+%
+Q: energia di attivazione del processo diffusivo, dipende dai due materiali\newline%
+%
+R: costante dei gas\newline%
+%
+T: temperatura in Kelvin\newline%
+%
+\newline%
+
+%
+\subsection{ Vacanze Vs Interstiziali }%
+\label{subsec:VacanzeVsInterstiziali}%
+Il processo di diffuzione tramite vacanze sfrutta lo spazio creato dalle vacanze per accogliere atomi sostituiti.\newline%
+%
+Il processo di diffusione tramite interstizi avviene quando gli atomi dei due materiali hanno dimensioni molto diverse,\newline%
+%
+di conseguenza l'atomo con dimensione minore diffonde in quello di dimensione maggiore andando ad occupare gli spazi\newline%
+%
+presenti nel reticolo cristallino.\newline%
+%
+\newline%
+%
+Il coefficente di diffusione varia in base alla temperatura, nel caso di diffusione tramite vacanze, il coefficente di diffusione varia\newline%
+%
+di molto rispetto ad una diffusione tramite interstizi. Questo avviene perché il numero di vacanze e ls velocità di spostamento \newline%
+%
+delle vacanze dipende dalla temperatura, invece il numero o la dimensione degli interstizi rimane più o meno invariato.\newline%
+%
+\newline%
+
+%
+\subsection{ Drive In }%
+\label{subsec:DriveIn}%
+Pre{-}deposizione: fase iniziale in cui aspettiamo che si diffonda la qunatità di materiale desiderata\newline%
+%
+Fase nel processo di diffusione secondaria alla fase pre{-}deposizione in cui il profilo di concetrazione si appiattisce,\newline%
+%
+significa che il materiale diffuso si espande verso l'interno del materiale.\newline%
+%
+In questa fase la qunatità di materiale diffuso non aumenta, cambia invece la profondità a cui lo troviamo.\newline%
+%
+In generale in questa fase viene aumentata ulteriormente la temperatura per velocizzare il processo.\newline%
+%
+\newline%
+
+%
+\subsection{ Semiconduttori }%
+\label{subsec:Semiconduttori}%
+Semiconduttore è silicio o silicio{-}germaio, è necessario introdurre delle impurità che sono esssenziali per raggiungere\newline%
+%
+le porprietà elettriche desiderate.\newline%
+%
+\newline%
+%
+Ad esempio la diffusione può avvenire tra metallo e gas, in cui il sistema viene portato ad una temperatura di 900{-}1000 K.\newline%
+%
+\newline%
+%
+Per creare interconnessioni neli microprocessori viene tenuto conto anche del processo diffusivo.\newline%
+%
+Le interconnessioni sono i collegamenti tra componenti in silicio drogato, servono solo per trasportare corrente, +non agiscono attivamnete.\newline%
+%
+La scelta del materiale che viene utilizzato per un'interconnessione dipende dal fatto che durante il processo di\newline%
+%
+creazione di un microprocessore nella fase di creazione di interconnessioni, la temperatura deve rimanere inferiore ai 500°C.\newline%
+%
+A questa temperatura i metalli diffondono, l'esigenza è che il silicio rimanga puro/impuro come prima di iniziare la creazione di interconnessioni,\newline%
+%
+verrà quindi scelto il metallo con coefficente di diffusione più basso.\newline%
+%
+\newline%
+%
+Dati a 500 °C\newline%
+%
+Cu in Si {-}> 4   * 10\^{}{-}13\newline%
+%
+Au in Si {-}> 2.5 * 10\^{}{-}15\newline%
+%
+Ag in Si {-}> 4.2 * 10\^{}{-}17\newline%
+%
+Al in Si {-}> 2.5 * 10\^{}{-}21\newline%
+%
+\newline%
+%
+Diventa evidente che l'alluminio diventa il materiale scelto, nonostante non sia un buon conduttote come gli altri.\newline%
+%
+\newline%
+
+%
+\section{ Diagrammi di Stato }%
+\label{sec:DiagrammidiStato}%
+E' un processo che avviene in funzione della temperatura.\newline%
+%
+Difetti reticolari sono alla base della diffusione, in particolare le vacanze\newline%
+%
+Sfruttato nella saldatura\newline%
+%
+Avviene tra due materiali adiacenti, nel/nei punti di contatto avviene a diffusione, ovvero parte del materiale A\newline%
+%
+è andato ad occupare spazio nel materiale B e viceversa , è un processo che richiede molto tempo.\newline%
+%
+Dipende dalle dimesioni degli atomi dei due materiali, infatti il materiale con dimensioni più piccole è più \newline%
+%
+propenso a diffondere nel materiale con atomi più grandi.\newline%
+%
+La vibrazione degli atomi all'interno del solido provoca uno spostamento di essi, crea quindi vacanze e permette\newline%
+%
+a queste vacanze di potersi muovere, il processo di diffusione sfrutta questo principio, il risultato è quindi uno\newline%
+%
+spostamento di atomi da A a B attraverso questi "vuoti" all'interno del solido.\newline%
+%
+La temperatura va ad agire sulla vibrazione degli atomi e quindi sulla velocità di spostamento di essi, quindi\newline%
+%
+anche alla velocità del processo di diffusione.\newline%
+%
+\newline%
+%
+\newline%
+%
+Diagrammi che descrivono lo stato di un materiale date delle condizioni di contorno.\newline%
+%
+Analizzeremo sistemi binari, diagrammi binari, in funzione della variabile temperatura.\newline%
+%
+Confrontiamo la stabilità termodinamica di diverse fasi.\newline%
+%
+E' un'analisi indipendente dal tempo\newline%
+%
+\newline%
+%
+\subsection{ Fase }%
+\label{subsec:Fase}%
+Una fase è una porzione di materiale omogenea dal punto di vista chimico e fisico anche a livello microscopico.\newline%
+%
+Sono fasi diverse due materiali solidi uguali con struttura cristallina diversa.\newline%
+%
+Ad esempio Diamante e Grafite, stessa composizione ma struttura diversa.\newline%
+%
+Sono fasi diverse Acqua e Ghiaccio.\newline%
+%
+Dono fasi diverse Acqua e Olio.\newline%
+%
+Sono Fasi uguali Acqua e Alcool, infatti è una soluzione omogenea.\newline%
+%
+\newline%
+%
+I metalli allo stato liquido sono sempre perfettamente solubili, qualunque sia la combinazione.\newline%
+%
+\newline%
+%
+l'interfase è uno stato in cui coesistono più fasi contemporaneamente,\newline%
+%
+corrisponde alla linea di separazione tra le due fasi nel diagramma di stato\newline%
+%
+\newline%
+%
+\textbf{ Esempio \newline%
+}%
+\textit{Diagramma di stato di conposto binario acqua{-}zucchero.\newline%
+}%
+\textit{E' una fase quando la soluzione non è satura, appena lo diventa, allora sono distinte le due fasi, solida e liquida.\newline%
+}%
+\textit{Il valore di saturazione dipende dalla temperatura, ecco che viene introdotta la variabile che ci permette di descrivere un andamento.\newline%
+}%
+\newline%
+
+%
+\subsection{ Rame{-}Nichel }%
+\label{subsec:Rame{-}Nichel}%
+Diagramma di stato, ha come variabili temperatura e concentrazione di Nichel.\newline%
+%
+Ascisse: Concentrazoine percentuale.\newline%
+%
+Ordinate: Temperatura °C 1000{-}1600\newline%
+%
+Retta che parte da T: 1085 e \%=0 e arriva a T: 1435 e \%=100. Viene definita come: Curva di Solidus.\newline%
+%
+Curva sopra alla retta che parte da T: 1085 e \%=0 e arriva a T: 1435 e \%=100. Viene definita come: Curva di Liquidus.\newline%
+%
+\newline%
+%
+Al di sopra della curva vi è la fase liquida.\newline%
+%
+Al di sotto della retta vi è la fase solida.\newline%
+%
+\newline%
+%
+Tra la curva e la retta (simile ad una lente) vi è la coesistenza tra le due fasi solido e liquido della lega.\newline%
+%
+\newline%
+%
+Per qualsiasi punto posizionato tra retta e curva possiamo determinare le concentrazioni delle due fasi.\newline%
+%
+Per calcolare questo punto si comincia disegnando una linea isoterma, quindi una linea orizzontale, che va quindi ad intersecare\newline%
+%
+la curva di liquidus e la curva di solidus. I punti di intersezione corrispondono alla composizione della fase liquida e alla\newline%
+%
+composizione della fase solida. Questa non è ancora una quatità di fasi, definisce solo la composizione delle due fasi.\newline%
+%
+Per arrivare alla quantità delle due fasi è necessario applicare una formula che mette in relazione le concentrazioni.\newline%
+%
+Viene sfruttato il fatto che la concentrazione totale delle due fasi non cambia, quindi se a 1000 °C (ovvero monofasico solido) la\newline%
+%
+concentrazione era 65{-}35, anche a 1250°C la concentrazione dovrà rimanere 65{-}35.\newline%
+%
+\newline%
+%
+Wa e Wl sono le qunatità percentuali delle due fasi, rispettivamente solida e liquida\newline%
+%
+\newline%
+%
+\begin{alignat}{2}%
+Wa + Wl = 1
+%
+\end{alignat}%
+La somma delle percentuali devono date 100\%\newline%
+%
+\newline%
+%
+\begin{alignat}{2}%
+Wa*Ca + Wl*Cl = C0
+%
+\end{alignat}%
+C0 è la concentrazione iniziale ad esempio nello stato monofasico solido\newline%
+%
+\newline%
+%
+Le formule seguenti ci permettono quindi di calcolare la quantità delle fasi\newline%
+%
+Viene chiamata regola della leva\newline%
+%
+\newline%
+%
+\begin{alignat}{2}%
+Wl = (Ca - C0) / (Ca - Cl)
+%
+\end{alignat}%
+\begin{alignat}{2}%
+Wa = (C0 - Cl) / (Ca - Cl)
+%
+\end{alignat}%
+\newline%
+
+%
+\subsection{ Rame Nichel Solidificazione }%
+\label{subsec:RameNichelSolidificazione}%
+Lega Rame{-}Nichel 65{-}35\newline%
+%
+\newline%
+%
+Punto b appena sotto alla linea di liquidus ovvero è appena cominciato il processo di Solidificazione\newline%
+%
+Presenza di due fasi: composizione della fase liquida è circa 65{-}35, la composizione del solido sarà 46\% Nichel.\newline%
+%
+La temperaatura di fusione del Nichel è più alta di quella del rame, di conseguenza abbassando la temperatura si solidificherà per primo.\newline%
+%
+\newline%
+%
+Punto c al di sotto del punto b, si trova quandi ad una temperatura più bassa.\newline%
+%
+In questo punto anche il rame avrà cominciato a sciogliersi, quindi la composizione sarà nella fase liquida 32\% Nichel e nella fase solida 43\% Nichel.\newline%
+%
+\newline%
+%
+Punto d appena prima della solidificazione completa.\newline%
+%
+In questo punto ci sarà pochissima quantità di fase liquida e questa avrà una concentrazione molto alta di rame,\newline%
+%
+infatti nella fase liquida la composizione sarà 24\% Nichel.\newline%
+%
+La fase solida avrà una composizione molto simile alla composizione originale ovvero 35\% Nichel.\newline%
+%
+\newline%
+
+%
+\subsection{ Andamento della Solidificazione }%
+\label{subsec:AndamentodellaSolidificazione}%
+diagramma che rappresenta l'andamento della frazione volumetrica di materiale trasformata in funzione del logaritmo del tempo\newline%
+%
+condotta a temperatura costante.\newline%
+%
+\newline%
+%
+E' unandamento a sigmoide infatti ha una froma a "S" schiacciata\newline%
+%
+\newline%
+%
+Tempo di nucleazione, tempo necessario perché la nucleazione inizi, tempo in cui si creano gli embrioni, termina quando dagli embriovi si creano i nuclei.\newline%
+%
+Da questo tempo comincia la crescita che continua fino al 100\%\newline%
+%
+Il punto di completa trasformazione è complicato da calcolare, infatti la trasformazione ha un andamento asintotico.\newline%
+%
+E più semplice determinare il tempo al 50\% della trasformazione.\newline%
+%
+\newline%
+
+%
+\subsection{ Riscristallizazione }%
+\label{subsec:Riscristallizazione}%
+I cristalli si formano nella Solidificazione, ma in funzione della temperatura è possibile che durante los stato solido si formino altri cristalli.\newline%
+%
+Ad esempio in seguito a deformazioni di creano dislocazioni e il processo di ricristallizzazione permette al metallo di\newline%
+%
+rimuovere queste deformazione ricristalizzando il metallo.\newline%
+%
+\newline%
+%
+Questo processo dipende dalla temperatura, infatti a 135 °C comincia dopo un paio di secondi e termina dopo circa 30,\newline%
+%
+a 34°C comincia dopo un decina di minuti e termina in una decina di ore.\newline%
+
+%
+\end{document}
