@@ -42,6 +42,14 @@ texlive-latex-extra
 
 ## Example
 
-![Alt text](/example/txt.png ".txt file")
+### .txt input file
+
+![Alt text](/example/txt.png)
+
+### .pdf output file
+
 ![Alt text](/example/pdf.png "PDF file")
+
+### .tex output file
+
 ![Alt text](/example/tex.png "Latex file")
