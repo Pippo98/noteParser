@@ -1,0 +1,35 @@
+#!/usr/bin/python3
+
+import os
+import numpy as np
+from pylatex import Document, Section, Subsection, Tabular, Math, TikZ, Axis, \
+    Plot, Figure, Matrix, Alignat
+from pylatex.utils import italic
+import sys
+
+# Custom
+from browseTerminal import terminalBrowser
+from LatexGenerator import generator
+
+#path = "/home/filippo/Desktop/Uni/Materiali/appunti.txt"
+
+bt = terminalBrowser()
+if len(sys.argv) > 1:
+    if sys.argv[1] == ".":
+        bt = terminalBrowser(startPath=os.getcwd())
+
+path = bt.browse()
+
+filename = path.split("/")[-1]
+
+imagesPath = None
+if os.path.isdir(path.replace(filename, "Images")):
+    imagesPath = path.replace(filename, "Images") + "/"
+filePath = path.replace(filename, "")
+
+file_ = open(path, "r")
+
+lines = file_.readlines()
+
+gen = generator(filename.replace(".txt", ""), lines, filePath, imagesPath)
+gen.generate()
